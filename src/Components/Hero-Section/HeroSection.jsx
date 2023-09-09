@@ -1,6 +1,10 @@
 import React, {useState, useEffect} from "react";
 import "./HeroSection.css";
 
+import { BsArrowBarRight } from "react-icons/bs";
+
+import {AiOutlineArrowRight} from "react-icons/ai";
+
 import patter2 from "../../assets/pattern-2.svg";
 import patter3 from "../../assets/pattern-3.svg";
 import shadow1 from "../../assets/shadow-1.svg";
@@ -50,10 +54,7 @@ const HeroSection = () => {
             <button className="btn btn-primary">
               <span className="span">Get in Touch</span>
 
-              <ion-icon
-                name="arrow-forward-outline"
-                aria-hidden="true"
-              ></ion-icon>
+             <AiOutlineArrowRight/>
             </button>
           </div>
         </div>
