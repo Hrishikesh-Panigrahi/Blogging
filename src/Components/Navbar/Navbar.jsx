@@ -1,14 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Navbar.css"; // Import your CSS file with styles
 
 import logo from "../../assets/react.svg";
 
 function Navbar() {
-  const [isActive, setIsActive] = useState(false);
+  const [isButtonVisible, setIsButtonVisible] = useState(false);
+  useEffect(() => {
+    // Delay the button visibility using setTimeout
+    const buttonTimeout = setTimeout(() => {
+      setIsButtonVisible(true);
+    }, 750); // Adjust the delay as needed
 
-  const toggleNavbar = () => {
-    setIsActive(!isActive);
-  };
+    return () => {
+      clearTimeout(buttonTimeout); // Clear the timeout when the component unmounts
+    };
+  }, []);
 
   return (
     <header className="header">
@@ -50,7 +56,12 @@ function Navbar() {
         </ul>
       </div>
 
-      <a href="#" className="sign-in btn btn-primary">
+      <a
+        href="#"
+        className={`sign-in btn btn-primary ${
+          isButtonVisible ? "" : "btn-primary-hidden"
+        }`}
+      >
         Sign in
       </a>
     </header>
