@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import "./HeroSection.css";
 
 import patter2 from "../../assets/pattern-2.svg";
@@ -7,11 +7,20 @@ import shadow1 from "../../assets/shadow-1.svg";
 import shadow2 from "../../assets/shadow-2.svg";
 import profilepic from "../../assets/profile-pic.png";
 
+import Aos from "aos";
+import "aos/dist/aos.css";
+
 const HeroSection = () => {
+
+    useEffect(() => {
+        Aos.init({duration: 2000});
+    }, []);
+    
+
   return (
     <section className="hero" id="home" aria-label="home">
-      <div className="container">
-        <div className="hero-content">
+      <div  className="container">
+        <div data-aos="fade-up" className="hero-content">
           <p className="hero-subtitle">Welcome to my creative corner!</p>
 
           <h1 className="headline headline-1 section-title">
@@ -51,6 +60,7 @@ const HeroSection = () => {
 
         <div className="hero-banner">
           <img
+            data-aos="fade-left"
             src={profilepic}
             width="327"
             height="490"
