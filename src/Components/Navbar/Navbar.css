@@ -1,0 +1,78 @@
+.header {
+    background-color: var(--bg-oxford-blue-2);
+    padding: 24px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+.logo img {
+    width: 119px;
+    height: 37px;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+.menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+.menu li {
+    margin: 0 20px;
+    padding: .3rem 1rem;
+}
+
+.navbar-link {
+    color: var(--text-alice-blue);
+    text-decoration: none;
+    font-weight: var(--weight-medium);
+    transition: var(--transition-1);
+}
+
+
+.btn.btn-primary {
+    background-image: var(--gradient-2);
+    background-size: 200%;
+    background-position: left;
+    color: var(--white);
+    font-size: var(--fontSize-6);
+    font-weight: var(--weight-bold);
+    max-width: max-content;
+    padding: 8px 16px;
+    border-radius: var(--radius-6);
+    transition: var(--transition-1);
+}
+
+.btn.btn-primary:hover {
+    background-position: right;
+}
+
+.navbar-link:is(:hover, :focus-visible) {
+    color: var(--text-carolina-blue);
+    transform: translateX(0);
+}
+
+.sign-in {
+    gap: .5rem;
+    margin-right: 50px;
+}
