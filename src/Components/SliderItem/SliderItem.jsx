@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const SliderItem = ({ imageSrc, title, subtitle }) => {
   const customStyles = {
@@ -7,25 +8,31 @@ const SliderItem = ({ imageSrc, title, subtitle }) => {
   };
 
   return (
-    <li className="slider-item">
-      <a href="#" className="slider-card">
-        <figure className="slider-banner img-holder" style={customStyles}>
-          <img
-            src={imageSrc}
-            width="507"
-            height="618"
-            loading="lazy"
-            alt={title}
-            className="img-cover"
-          />
-        </figure>
+    <>
+    <Link to={`/poem/${encodeURIComponent(title)}`}>
+      <li className="slider-item">
+        <div href="#" className="slider-card">
+          <figure className="slider-banner img-holder" style={customStyles}>
+            <img
+              src={imageSrc}
+              width="507"
+              height="618"
+              loading="lazy"
+              alt={title}
+              className="img-cover"
+            />
+          </figure>
 
-        <div className="slider-content">
-          <span className="slider-title">{title}</span>
-          <p className="slider-subtitle">{subtitle}</p>
+          <div className="slider-content">
+            <span className="slider-title">{title}</span>
+            <p className="slider-subtitle">{subtitle}</p>
+          </div>
         </div>
-      </a>
-    </li>
+      </li>
+    </Link>
+    
+    </>
+
   );
 };
 
