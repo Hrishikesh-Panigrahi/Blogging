@@ -48,7 +48,7 @@ const HeroSection = () => {
               placeholder="Type your email address"
               required
               className="input-field"
-              autocomplete="off"
+              autoComplete="off"
             />
 
             <button className="btn btn-primary">

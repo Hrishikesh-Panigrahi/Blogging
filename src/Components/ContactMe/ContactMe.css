@@ -88,6 +88,10 @@
     transform: translateY(-2px);
 }
 
+.footer-brand .logo{
+    font-size: var(--fontSize-1);
+    color: var(--text-columbia-blue);
+}
 
 @media (min-width: 992px) {
     .footer-top {
@@ -107,6 +111,12 @@
 }
 
 @media (min-width: 1200px) {
+    .footer{
+        position: relative;
+        right: 30%;
+        width: 150%;
+    }
+    
     .footer-top {
         gap: 40px;
         padding-inline: 120px;

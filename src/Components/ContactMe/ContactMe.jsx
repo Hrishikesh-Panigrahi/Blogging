@@ -1,6 +1,8 @@
 import React from "react";
 import "./ContactMe.css";
 
+import profilepic from "../../assets/profile-pic.png";
+
 const ContactMe = () => {
   return (
     <footer>
@@ -8,15 +10,7 @@ const ContactMe = () => {
         <div className="card footer">
           <div className="section footer-top">
             <div className="footer-brand">
-              <a href="#" className="logo">
-                <img
-                  src="./assets/images/logo.svg"
-                  width="119"
-                  height="37"
-                  loading="lazy"
-                  alt="Wren logo"
-                />
-              </a>
+              <h2 className="logo">Hrishikesh Panigrahi</h2>
 
               <p className="footer-text">
                 When an unknown prnoto sans took a galley and scrambled it to
@@ -36,7 +30,8 @@ const ContactMe = () => {
               <p className="footer-list-title">Newsletter</p>
 
               <p className="footer-text">
-                Wanna Colaborate? or suggest changes? please free to drop a message!    
+                Wanna Colaborate? or suggest changes? please free to drop a
+                message!
               </p>
 
               <div className="input-wrapper">
@@ -46,7 +41,7 @@ const ContactMe = () => {
                   placeholder="Your name"
                   required
                   className="input-field"
-                  autocomplete="off"
+                  autoComplete="off"
                 />
 
                 <ion-icon name="person-outline" aria-hidden="true"></ion-icon>
@@ -59,7 +54,7 @@ const ContactMe = () => {
                   placeholder="Emaill address"
                   required
                   className="input-field"
-                  autocomplete="off"
+                  autoComplete="off"
                 />
 
                 <ion-icon name="mail-outline" aria-hidden="true"></ion-icon>
@@ -76,7 +71,7 @@ const ContactMe = () => {
           <div className="footer-bottom">
             <p className="copyright">
               &copy; Developed by{" "}
-              <a href="#" className="copyright-link">
+              <a href="https://hrishikeshpanigrahi.tech/" className="copyright-link">
                 Hrishikesh Panigrahi.
               </a>
             </p>
