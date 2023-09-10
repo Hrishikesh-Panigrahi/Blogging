@@ -116,14 +116,14 @@
 @media (min-width: 992px) {
     .topic-card {
         display: grid;
-        grid-template-columns: 0.3fr 1fr;
+        grid-template-columns: 0.3fr 1fr !important;
         align-items: center;
         gap: 20px;
     }
 
 }
 @media (min-width: 1200px) {
-
+    
 
 }
 

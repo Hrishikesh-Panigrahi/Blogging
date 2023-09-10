@@ -46,7 +46,9 @@ const HotTopics = () => {
   const slidesPerGroup = 3;
 
   const handleNextSlide = () => {
-    if (currentSlideGroup === Math.floor((sliderData.length - 1) / slidesPerGroup)) {
+    if (
+      currentSlideGroup === Math.floor((sliderData.length - 1) / slidesPerGroup)
+    ) {
       // If at the last group, wrap back to the first group
       setCurrentSlideGroup(0);
     } else {
@@ -57,7 +59,9 @@ const HotTopics = () => {
   const handlePrevSlide = () => {
     if (currentSlideGroup === 0) {
       // If at the first group, go to the last group
-      setCurrentSlideGroup(Math.floor((sliderData.length - 1) / slidesPerGroup));
+      setCurrentSlideGroup(
+        Math.floor((sliderData.length - 1) / slidesPerGroup)
+      );
     } else {
       setCurrentSlideGroup((prevSlideGroup) => prevSlideGroup - 1);
     }
@@ -109,7 +113,9 @@ const HotTopics = () => {
               className="slider-list"
               data-slider-container
               style={{
-                transform: `translateX(-${startIndex * (100 / slidesPerGroup)}%)`,
+                transform: `translateX(-${
+                  startIndex * (100 / slidesPerGroup)
+                }%)`,
                 transition: "transform 0.5s ease",
               }}
             >
