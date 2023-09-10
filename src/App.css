@@ -201,3 +201,37 @@
 
 
 }
+
+
+@media (min-width: 992px) {
+
+  /**
+   * REUSED STYLE
+   */
+
+  .container { max-width: 930px; }
+
+
+}
+
+
+
+
+
+/**
+ * responsive for large than 1200px screen
+ */
+
+@media (min-width: 1200px) {
+
+  /**
+   * REUSED STYLE
+   */
+
+  .container { max-width: 1140px; }
+
+  body.nav-active { overflow-y: overlay; }
+
+
+
+}

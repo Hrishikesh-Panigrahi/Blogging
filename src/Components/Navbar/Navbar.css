@@ -1,128 +1,288 @@
 .header {
-    background-color: var(--bg-oxford-blue-2);
-    padding: 24px 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
-    z-index: 100;
+  background-color: var(--bg-oxford-blue-2);
+  padding: 24px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 100;
 }
 
 .logo img {
-    width: 119px;
-    height: 37px;
+  width: 119px;
+  height: 37px;
 }
 
 .navbar {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .navbar-list {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    align-items: center;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
 }
 
 .menu {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    align-items: center;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
 }
 
 .menu li {
-    margin: 0 20px;
-    padding: .3rem 1rem;
-    opacity: 0;
-    animation: slideUp 0.5s ease-in-out forwards;
+  margin: 0 20px;
+  padding: .3rem 1rem;
+  opacity: 0;
+  animation: slideUp 0.5s ease-in-out forwards;
 }
 
 .navbar-link {
-    color: var(--text-alice-blue);
-    text-decoration: none;
-    font-weight: var(--weight-medium);
-    transition: var(--transition-1);
-    /* animation: slideUp 0.5s ease-in-out; */
+  color: var(--text-alice-blue);
+  text-decoration: none;
+  font-weight: var(--weight-medium);
+  transition: var(--transition-1);
+  /* animation: slideUp 0.5s ease-in-out; */
 }
 
 @keyframes slideUp {
-    0% {
-      transform: translateY(100%);
-      opacity: 0;
-    }
-    100% {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  }
-
-  .btn-primary-hidden {
+  0% {
+    transform: translateY(100%);
     opacity: 0;
   }
 
-.btn.btn-primary {
-    background-image: var(--gradient-2);
-    background-size: 200%;
-    background-position: left;
-    color: var(--white);
-    font-size: var(--fontSize-6);
-    font-weight: var(--weight-bold);
-    max-width: max-content;
-    padding: 8px 16px;
-    border-radius: var(--radius-6);
-    transition: var(--transition-1);
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
 
-    transition: opacity 0.5s ease;
-    /* opacity: 0; 
+.btn-primary-hidden {
+  opacity: 0;
+}
+
+.btn.btn-primary {
+  background-image: var(--gradient-2);
+  background-size: 200%;
+  background-position: left;
+  color: var(--white);
+  font-size: var(--fontSize-6);
+  font-weight: var(--weight-bold);
+  max-width: max-content;
+  padding: 8px 16px;
+  border-radius: var(--radius-6);
+  transition: var(--transition-1);
+
+  transition: opacity 0.5s ease;
+  /* opacity: 0; 
     animation: fadeIn 0.5s ease-in-out forwards; */
 }
 
 @keyframes fadeIn {
-    to {
-      opacity: 1; /* Gradually make the button visible */
-    }
+  to {
+    opacity: 1;
+    /* Gradually make the button visible */
   }
+}
 
 .btn.btn-primary:hover {
-    background-position: right;
+  background-position: right;
 }
 
 .navbar-link:is(:hover, :focus-visible) {
-    color: var(--text-carolina-blue);
-    transform: translateX(0);
+  color: var(--text-carolina-blue);
+  transform: translateX(0);
 }
 
 .sign-in {
-    gap: .5rem;
-    margin-right: 50px;
+  gap: .5rem;
+  margin-right: 50px;
 }
 
 
 
 /* Delay the animation for each list item */
 .menu li:nth-child(1) {
-    animation-delay: 0.1s;
+  animation-delay: 0.1s;
+}
+
+.menu li:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.menu li:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.menu li:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+.menu li:nth-child(5) {
+  animation-delay: 0.5s;
+}
+
+
+.toggleNavbarIcon {
+  display: none;
+}
+
+.navbar .icon {
+  display: none;
+}
+
+.showNavbar {
+  top: 9rem !important;
+  transition: .3s ease;
+}
+
+.addBg {
+  box-shadow: none;
+  height: 75px;
+  background-color: var(--bg-oxford-blue-2);
+  transition: height 0.1s ease, background-color 0.5s ease !important;
+
+}
+
+@media screen and (max-width: 520px) {
+  .header img {
+    width: 80px;
+    position: absolute;
+    left: 30px;
+    top: 10px;
   }
-  
-  .menu li:nth-child(2) {
-    animation-delay: 0.2s;
+
+  .signUp {
+    position: relative;
+    right: -40px;
   }
-  
-  .menu li:nth-child(3) {
-    animation-delay: 0.3s;
+
+  .signUp .text {
+    padding: 6px;
+    font-size: 14px !important;
   }
-  
-  .menu li:nth-child(4) {
-    animation-delay: 0.4s;
+
+  .toggleNavbarIcon {
+    font-size: 30px;
   }
-  
-  .menu li:nth-child(5) {
-    animation-delay: 0.5s;
+}
+
+@media (max-width: 855px) {
+  .header {
+    width: 100%;
+    padding: 2rem 3rem !important;
   }
+
+  .navbar .icon {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 2px;
+  }
+
+  .toggleNavbarIcon {
+    display: inline-block;
+    background: none;
+    color: var(--text-wild-blue-yonder);
+    font-weight: 600;
+    font-size: 25px;
+  }
+
+  .navbar {
+    position: absolute;
+    background-color: var(--secondary-color);
+    width: 80%;
+    top: -100rem;
+    right: 50%;
+    left: 50%;
+    transform: translate(-50%);
+    border-radius: 10px;
+    text-align: center;
+    padding: 2rem;
+    transition: .5s ease;
+
+    z-index: 2000;
+  }
+
+  .closeIcon {
+    position: absolute;
+    bottom: -10px;
+    right: 50%;
+    left: 50%;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    padding: 3px;
+    border-radius: 50%;
+    font-size: 35px;
+    transform: translate(-50%);
+
+    &:hover {
+      color: red;
+    }
+  }
+
+
+  .logodiv {
+    margin-bottom: 10px;
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .menu {
+    flex-direction: column;
+    align-items: center;
+
+
+  }
+
+  .listitem {
+    margin: 5px 0;
+    padding: .5rem 1rem;
+    cursor: pointer;
+    border-radius: 10px;
+
+    &:hover {
+      background-color: var(--primary-color);
+      color: var(--white-color);
+      transition: 0.3s ease;
+    }
+  }
+
+  .listitem a {
+    font-size: 15px;
+
+    &:hover {
+      color: var(--white-color)
+    }
+  }
+
+}
+
+
+@media screen and (max-width: 1064px) {
+  .header {
+    padding: 2rem 7rem;
+  }
+
+  .listitem {
+    padding: 0;
+  }
+
+  .listitem a {
+    font-size: 17px;
+  }
+
+  .signUp .text {
+    font-size: 16px;
+  }
+
+}

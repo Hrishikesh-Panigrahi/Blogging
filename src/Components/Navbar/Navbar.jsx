@@ -3,7 +3,32 @@ import "./Navbar.css"; // Import your CSS file with styles
 
 import logo from "../../assets/react.svg";
 
+import { IoIosCloseCircle } from "react-icons/io";
+import { TbGridDots } from "react-icons/tb";
+import { AiOutlineMenu } from "react-icons/ai";
+
 function Navbar() {
+  const [navbar, Setnavbar] = useState("navbar");
+
+  const showNavbar = () => {
+    Setnavbar("navbar showNavbar");
+  };
+
+  const removeNavbar = () => {
+    Setnavbar("navbar");
+  };
+
+  const [header, setHeader] = useState("header");
+  const addBg = () => {
+    if (window.scrollY >= 20) {
+      setHeader("header addBg");
+    } else {
+      setHeader("header");
+    }
+  };
+
+  window.addEventListener("scroll", addBg);
+
   const [isButtonVisible, setIsButtonVisible] = useState(false);
   useEffect(() => {
     // Delay the button visibility using setTimeout
@@ -17,13 +42,13 @@ function Navbar() {
   }, []);
 
   return (
-    <header className="header">
+    <header className={header}>
       <a href="#" className="logo">
         <img src={logo} width="119" height="37" alt="Wren logo" />
       </a>
 
-      <div className="navbar">
-        <ul className="menu">
+      <div className={navbar}>
+        <div className="menu">
           <li>
             <a href="#home" className="navbar-link hover-1">
               Home
@@ -53,17 +78,19 @@ function Navbar() {
               Contact
             </a>
           </li>
-        </ul>
+        </div>
+        <IoIosCloseCircle className="icon closeIcon" onClick={removeNavbar} />
       </div>
 
-      <a
+      <div
         href="#"
         className={`sign-in btn btn-primary ${
           isButtonVisible ? "" : "btn-primary-hidden"
         }`}
       >
         Sign in
-      </a>
+      </div>
+      <AiOutlineMenu className="icon toggleNavbarIcon" onClick={showNavbar} />
     </header>
   );
 }

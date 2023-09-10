@@ -111,11 +111,7 @@
 }
 
 @media (min-width: 1200px) {
-    .footer{
-        position: relative;
-        right: 30%;
-        width: 150%;
-    }
+
     
     .footer-top {
         gap: 40px;

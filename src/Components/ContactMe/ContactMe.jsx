@@ -2,6 +2,8 @@ import React from "react";
 import "./ContactMe.css";
 
 import profilepic from "../../assets/profile-pic.png";
+import {BsFillPersonFill} from "react-icons/bs";
+import {AiOutlineMail} from "react-icons/ai";
 
 const ContactMe = () => {
   return (
@@ -44,7 +46,7 @@ const ContactMe = () => {
                   autoComplete="off"
                 />
 
-                <ion-icon name="person-outline" aria-hidden="true"></ion-icon>
+                <ion-icon ><BsFillPersonFill/></ion-icon>
               </div>
 
               <div className="input-wrapper">
@@ -57,7 +59,7 @@ const ContactMe = () => {
                   autoComplete="off"
                 />
 
-                <ion-icon name="mail-outline" aria-hidden="true"></ion-icon>
+                <ion-icon > <AiOutlineMail/></ion-icon>
               </div>
 
               <a href="#" className="btn btn-primary">
