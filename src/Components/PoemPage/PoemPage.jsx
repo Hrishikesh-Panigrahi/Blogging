@@ -5,7 +5,7 @@ import "./PoemPage.css";
 import shadow1 from "../../assets/shadow-1.svg";
 import shadow2 from "../../assets/shadow-2.svg";
 
-import {BsArrowBarLeft} from "react-icons/bs";
+import { BsArrowBarLeft } from "react-icons/bs";
 
 const PoemPage = () => {
   const { title } = useParams();
@@ -31,26 +31,25 @@ const PoemPage = () => {
 
   const navigate = useNavigate();
 
-
-
   console.log("poemContent:", poemContent); // Debugging: Check the poemContent value
 
   return (
     <div className="poem-page">
-      
-      <button className=" btn btn-primary back-button" onClick={() => navigate(-1)}>
-       <BsArrowBarLeft/>
+      <button
+        className=" btn btn-primary back-button"
+        onClick={() => navigate(-1)}
+      >
+        <BsArrowBarLeft />
       </button>
 
       <h1 className="headline headline-1 section-title">
         <span className="span">{title}</span>
       </h1>
       <div className="poem">
-      <div className="poemText hero-text" style={{ whiteSpace: "pre-line" }}>
-        {poemContent}
+        <div className="poemText hero-text" style={{ whiteSpace: "pre-line" }}>
+          {poemContent}
+        </div>
       </div>
-      </div>
-    
 
       <img
         src={shadow1}
