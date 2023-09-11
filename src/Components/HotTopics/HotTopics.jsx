@@ -15,17 +15,17 @@ import SliderItem from "../SliderItem/SliderItem";
 const sliderData = [
   {
     imageSrc: topic5,
-    title: "Sport",
+    title: "Poem 1",
     subtitle: "--Hrishikesh Panigrahi",
   },
   {
     imageSrc: topic4,
-    title: "Sport",
+    title: "Poem 1",
     subtitle: "--Hrishikesh Panigrahi",
   },
   {
     imageSrc: topic3,
-    title: "Sport",
+    title: "Poem 1",
     subtitle: "--Hrishikesh Panigrahi",
   },
   {
