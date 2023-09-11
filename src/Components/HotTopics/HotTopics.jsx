@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./HotTopics.css";
 
 import topic1 from "../../assets/topic-1.png";
@@ -12,35 +12,22 @@ import { AiOutlineArrowLeft } from "react-icons/ai";
 
 import SliderItem from "../SliderItem/SliderItem";
 
-const sliderData = [
-  {
-    imageSrc: topic5,
-    title: "Poem 1",
-    subtitle: "--Hrishikesh Panigrahi",
-  },
-  {
-    imageSrc: topic4,
-    title: "Poem 1",
-    subtitle: "--Hrishikesh Panigrahi",
-  },
-  {
-    imageSrc: topic3,
-    title: "Poem 1",
-    subtitle: "--Hrishikesh Panigrahi",
-  },
-  {
-    imageSrc: topic2,
-    title: "Sport",
-    subtitle: "--Hrishikesh Panigrahi",
-  },
-  {
-    imageSrc: topic1,
-    title: "Sport",
-    subtitle: "--Hrishikesh Panigrahi",
-  },
-];
-
 const HotTopics = () => {
+  const [sliderData, setSliderData] = useState([]);
+
+  useEffect(() => {
+    // Fetch slider data from your API endpoint
+    fetch("/Poems.json")
+      .then((response) => response.json())
+      .then((data) => {
+        // Update the state with the fetched slider data
+        setSliderData(data.poems);
+      })
+      .catch((error) => {
+        console.error("Error fetching slider data:", error);
+      });
+  }, []);
+
   const [currentSlideGroup, setCurrentSlideGroup] = useState(0);
 
   const slidesPerGroup = 3;
