@@ -1,29 +1,40 @@
-import React, { useState, useEffect }  from "react";
+import React, { useState, useEffect } from "react";
 import "./RecentPost.css";
 
 import img from "../../assets/topic-1.png";
-import img1 from "../../assets/topic-2.png";
-import img2 from "../../assets/topic-3.png";
-import img3 from "../../assets/topic-4.png";
 
 import GridItem from "../GridItem/GridItem";
 
+import Comments from "../Comments/Comments";
+
 const RecentPost = () => {
-  const [gridData, setGridData] = useState([]); // State to store grid data
+  const [gridData, setGridData] = useState([]);
+  const [commentData, setCommentData] = useState([]);
 
   useEffect(() => {
     // Fetch data from the API when the component mounts
     fetch("https://json-file-theta.vercel.app/poems")
-    .then((response) => response.json())
-    .then((data) => {
-      // Update the state with the fetched slider data
-      setGridData(data);
-    })
-    .catch((error) => {
-      console.error("Error fetching slider data:", error);
-    });
-}, []);
- 
+      .then((response) => response.json())
+      .then((data) => {
+        // Update the state with the fetched slider data
+        setGridData(data);
+      })
+      .catch((error) => {
+        console.error("Error fetching slider data:", error);
+      });
+  }, []);
+
+  useEffect(() => {
+    fetch("https://json-file-theta.vercel.app/comments")
+      .then((response) => response.json())
+      .then((data) => {
+        setCommentData(data);
+      })
+      .catch((error) => {
+        console.error("Error fetching slider data:", error);
+      });
+  }, []);
+
   const customStyles2 = {
     "--width": "271px",
     "--height": "258px",
@@ -46,7 +57,6 @@ const RecentPost = () => {
           <ul className="grid-list">
             {gridData.map((item, index) => (
               <ul className="grid-list" key={index}>
-                {/* Use the GridItem component here */}
                 <GridItem
                   title={item.title}
                   imageSrc={item.imageSrc}
@@ -81,6 +91,27 @@ const RecentPost = () => {
               <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
             </a>
           </nav>
+        </div>
+
+        <div className="post-aside grid-list">
+          <div class="card aside-card">
+            <h3 class="headline headline-2 aside-title">
+              <span class="span">Last Comment</span>
+            </h3>
+
+            <ul class="comment-list">
+              {commentData.map((item, index) => (
+                <>
+                  <Comments
+                    author={item.author}
+                    date={item.date}
+                    content={item.content}
+                    imgSrc={img}
+                  />
+                </>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
     </section>
