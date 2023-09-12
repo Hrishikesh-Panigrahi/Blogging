@@ -17,7 +17,7 @@ const HotTopics = () => {
 
   useEffect(() => {
     // Fetch slider data from your API endpoint
-    fetch("/Poems.json")
+    fetch("/db.json")
       .then((response) => response.json())
       .then((data) => {
         // Update the state with the fetched slider data

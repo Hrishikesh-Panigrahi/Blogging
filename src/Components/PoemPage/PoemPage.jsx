@@ -13,7 +13,7 @@ const PoemPage = () => {
 
   useEffect(() => {
     // Fetch the JSON file containing poem data
-    fetch("/Poems.json")
+    fetch("/db.json")
       .then((response) => response.json())
       .then((data) => {
         // Find the poem with matching id

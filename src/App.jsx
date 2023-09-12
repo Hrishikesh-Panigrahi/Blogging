@@ -7,6 +7,7 @@ import HotTopics from "./Components/HotTopics/HotTopics";
 import PoemPage from "./Components/PoemPage/PoemPage";
 
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import RecentPost from "./Components/RecentPost/RecentPost";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -26,6 +27,7 @@ function App() {
               <Navbar />
                 <HeroSection />
                 <HotTopics />
+                <RecentPost />
                 <ContactMe />
               </>
             }
