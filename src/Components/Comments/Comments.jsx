@@ -22,7 +22,7 @@ const Comments = ({author, content, date, imgSrc}) => {
         <div>
           <p class="card-title">{author}</p>
 
-          <time class="card-date" datetime="2022-04-15">
+          <time class="card-date" dateTime="2022-04-15">
             {date}
           </time>
         </div>

@@ -4,27 +4,27 @@ import "./RecentPost.css";
 import img from "../../assets/topic-1.png";
 
 import GridItem from "../GridItem/GridItem";
-
 import Comments from "../Comments/Comments";
+
+import { AiOutlineArrowRight } from "react-icons/ai";
+
+import axios from "axios";
 
 const RecentPost = () => {
   const [gridData, setGridData] = useState([]);
   const [commentData, setCommentData] = useState([]);
+  // const [newComment, setNewComment] = useState("");
 
   useEffect(() => {
-    // Fetch data from the API when the component mounts
     fetch("https://json-file-theta.vercel.app/poems")
       .then((response) => response.json())
       .then((data) => {
-        // Update the state with the fetched slider data
         setGridData(data);
       })
       .catch((error) => {
         console.error("Error fetching slider data:", error);
       });
-  }, []);
 
-  useEffect(() => {
     fetch("https://json-file-theta.vercel.app/comments")
       .then((response) => response.json())
       .then((data) => {
@@ -35,10 +35,47 @@ const RecentPost = () => {
       });
   }, []);
 
-  const customStyles2 = {
-    "--width": "271px",
-    "--height": "258px",
-  };
+  // const handleInputChange = (e) => {
+  //   setNewComment(e.target.value);
+  // };
+
+  // Handle form submission
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+
+  //   // Create a new comment object
+  //   const newCommentObject = {
+  //     id: commentData.length + 1, // Generate a unique ID (you may want to use a more robust approach)
+  //     author: "User", // You can set the author to the user's name or handle
+  //     comment: newComment,
+  //     date: new Date().toISOString(), // Use the current date and time
+  //   };
+
+  //   try {
+  //     // Send a POST request to your API endpoint for comments
+  //     const response = await axios.post(
+  //       "https://json-file-theta.vercel.app/comments",
+  //       newCommentObject
+  //     );
+
+  //     // Check the response status and handle it accordingly
+  //     if (response.status === 201) {
+  //       // Comment successfully added to the API, do any additional actions here if needed
+  //     } else {
+  //       // Handle the error or unexpected response status
+  //       console.error("Failed to add comment to the API");
+  //     }
+
+  //     // Update the local state with the new comment
+  //     setCommentData([...commentData, newCommentObject]);
+
+  //     // Clear the input field
+  //     setNewComment("");
+  //   } catch (error) {
+  //     // Handle any network errors or exceptions here
+  //     console.error("Error adding comment to the API:", error);
+  //   }
+  // };
 
   return (
     <section
@@ -112,6 +149,26 @@ const RecentPost = () => {
               ))}
             </ul>
           </div>
+          {/* <form onSubmit={handleSubmit}>
+            <div className="input-wrapper">
+              <input
+                type="text"
+                name="email_address"
+                placeholder="Add your comment..."
+                required
+                className="input-field"
+                autoComplete="off"
+                onChange={handleInputChange}
+                value={newComment}
+              />
+
+              <button className="btn btn-primary">
+                <span className="span">Have Your Say</span>
+
+                <AiOutlineArrowRight />
+              </button>
+            </div>
+          </form> */}
         </div>
       </div>
     </section>
