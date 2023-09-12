@@ -2,8 +2,9 @@ import React from "react";
 import "./ContactMe.css";
 
 import profilepic from "../../assets/profile-pic.png";
-import {BsFillPersonFill} from "react-icons/bs";
-import {AiOutlineMail} from "react-icons/ai";
+import { BsFillPersonFill } from "react-icons/bs";
+import { AiOutlineMail, AiOutlineArrowRight } from "react-icons/ai";
+import { SiInstagram, SiGithub, SiGeeksforgeeks } from "react-icons/si";
 
 const ContactMe = () => {
   return (
@@ -15,16 +16,19 @@ const ContactMe = () => {
               <h2 className="logo">Hrishikesh Panigrahi</h2>
 
               <p className="footer-text">
-                When an unknown prnoto sans took a galley and scrambled it to
-                make specimen book not only five When an unknown prnoto sans
-                took a galley and scrambled it to five centurie.
+                Thank you for gracing my website with your presence. I deeply
+                value your time and the interest you've shown in my poetry. If
+                you have any thoughts, inquiries, or suggestions, please don't
+                hesitate to connect with me. I'm here to enhance your experience
+                and bring more enchanting verses to your life. Stay connected
+                for the latest updates and the arrival of captivating new poems!
               </p>
 
               <p className="footer-list-title">Address</p>
 
               <address className="footer-text address">
-                123 Main Street <br />
-                New York, NY 10001
+                Mumbai <br />
+                Maharashtra, India
               </address>
             </div>
 
@@ -32,8 +36,7 @@ const ContactMe = () => {
               <p className="footer-list-title">Newsletter</p>
 
               <p className="footer-text">
-                Wanna Colaborate? or suggest changes? please free to drop a
-                message!
+              Have ideas or want to collaborate? Drop me a message!
               </p>
 
               <div className="input-wrapper">
@@ -46,7 +49,9 @@ const ContactMe = () => {
                   autoComplete="off"
                 />
 
-                <ion-icon ><BsFillPersonFill/></ion-icon>
+                <ion-icon>
+                  <BsFillPersonFill />
+                </ion-icon>
               </div>
 
               <div className="input-wrapper">
@@ -59,13 +64,18 @@ const ContactMe = () => {
                   autoComplete="off"
                 />
 
-                <ion-icon > <AiOutlineMail/></ion-icon>
+                <ion-icon>
+                  {" "}
+                  <AiOutlineMail />
+                </ion-icon>
               </div>
 
               <a href="#" className="btn btn-primary">
                 <span className="span">Get in touch</span>
 
-                <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
+                <ion-icon aria-hidden="true">
+                  <AiOutlineArrowRight />
+                </ion-icon>
               </a>
             </div>
           </div>
@@ -73,7 +83,10 @@ const ContactMe = () => {
           <div className="footer-bottom">
             <p className="copyright">
               &copy; Developed by{" "}
-              <a href="https://hrishikeshpanigrahi.tech/" className="copyright-link">
+              <a
+                href="https://hrishikeshpanigrahi.tech/"
+                className="copyright-link"
+              >
                 Hrishikesh Panigrahi.
               </a>
             </p>
@@ -81,7 +94,9 @@ const ContactMe = () => {
             <ul className="social-list">
               <li>
                 <a href="#" className="social-link">
-                  <ion-icon name="logo-twitter"></ion-icon>
+                  <ion-icon>
+                    <SiInstagram />
+                  </ion-icon>
 
                   <span className="span">Instagram</span>
                 </a>
@@ -89,7 +104,9 @@ const ContactMe = () => {
 
               <li>
                 <a href="#" className="social-link">
-                  <ion-icon name="logo-linkedin"></ion-icon>
+                  <ion-icon>
+                    <SiGithub />
+                  </ion-icon>
 
                   <span className="span">Github</span>
                 </a>
@@ -97,7 +114,9 @@ const ContactMe = () => {
 
               <li>
                 <a href="#" className="social-link">
-                  <ion-icon name="logo-instagram"></ion-icon>
+                  <ion-icon>
+                    <SiGeeksforgeeks />
+                  </ion-icon>
 
                   <span className="span">Geeks for Geeks</span>
                 </a>

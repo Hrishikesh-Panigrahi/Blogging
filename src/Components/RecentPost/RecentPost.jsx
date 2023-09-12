@@ -6,14 +6,23 @@ import img from "../../assets/topic-1.png";
 import GridItem from "../GridItem/GridItem";
 import Comments from "../Comments/Comments";
 
-import { AiOutlineArrowRight } from "react-icons/ai";
+import { AiOutlineArrowRight, AiOutlineArrowLeft } from "react-icons/ai";
 
 import axios from "axios";
 
 const RecentPost = () => {
   const [gridData, setGridData] = useState([]);
   const [commentData, setCommentData] = useState([]);
+
+  const [currentPage, setCurrentPage] = useState(1); // Current page
+  const itemsPerPage = 3; // Number of items to show per page
+
   // const [newComment, setNewComment] = useState("");
+
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+
+  const itemsToDisplay = gridData.slice(startIndex, endIndex);
 
   useEffect(() => {
     fetch("https://json-file-theta.vercel.app/poems")
@@ -76,6 +85,12 @@ const RecentPost = () => {
   //     console.error("Error adding comment to the API:", error);
   //   }
   // };
+  const totalPages = Math.ceil(gridData.length / itemsPerPage);
+
+  const pageNumbers = [];
+  for (let i = 1; i <= totalPages; i++) {
+    pageNumbers.push(i);
+  }
 
   return (
     <section
@@ -92,8 +107,8 @@ const RecentPost = () => {
           <p className="section-text">Don't miss the latest trends</p>
 
           <ul className="grid-list">
-            {gridData.map((item, index) => (
-              <ul className="grid-list" key={index}>
+            {itemsToDisplay.map((item, index) => (
+              <>
                 <GridItem
                   title={item.title}
                   imageSrc={item.imageSrc}
@@ -102,31 +117,45 @@ const RecentPost = () => {
                   tags={item.tags}
                   readingTime={item.readingTime}
                 />
-              </ul>
+              </>
             ))}
           </ul>
 
           <nav aria-label="pagination" className="pagination">
-            <a href="#" className="pagination-btn" aria-label="previous page">
-              <ion-icon name="arrow-back" aria-hidden="true"></ion-icon>
-            </a>
+            <button
+              onClick={() => setCurrentPage(currentPage - 1)}
+              className="pagination-btn"
+              aria-label="previous page"
+              disabled={currentPage === 1}
+            >
+              <ion-icon name="arrow-back" aria-hidden="true">
+                <AiOutlineArrowLeft />
+              </ion-icon>
+            </button>
 
-            <a href="#" className="pagination-btn">
-              1
-            </a>
-            <a href="#" className="pagination-btn">
-              2
-            </a>
-            <a href="#" className="pagination-btn">
-              3
-            </a>
-            <a href="#" className="pagination-btn" aria-label="more page">
-              ...
-            </a>
+            {pageNumbers.map((pageNumber) => (
+              <a
+                key={pageNumber}
+                href="#"
+                className={`pagination-btn ${
+                  pageNumber === currentPage ? "active" : ""
+                }`}
+                onClick={() => setCurrentPage(pageNumber)}
+              >
+                {pageNumber}
+              </a>
+            ))}
 
-            <a href="#" className="pagination-btn" aria-label="next page">
-              <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
-            </a>
+            <button
+              onClick={() => setCurrentPage(currentPage + 1)}
+              className="pagination-btn"
+              aria-label="next page"
+              disabled={endIndex >= gridData.length}
+            >
+              <ion-icon name="arrow-forward" aria-hidden="true">
+                <AiOutlineArrowRight />
+              </ion-icon>
+            </button>
           </nav>
         </div>
 
@@ -149,7 +178,15 @@ const RecentPost = () => {
               ))}
             </ul>
           </div>
-          {/* <form onSubmit={handleSubmit}>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default RecentPost;
+{
+  /* <form onSubmit={handleSubmit}>
             <div className="input-wrapper">
               <input
                 type="text"
@@ -168,11 +205,5 @@ const RecentPost = () => {
                 <AiOutlineArrowRight />
               </button>
             </div>
-          </form> */}
-        </div>
-      </div>
-    </section>
-  );
-};
-
-export default RecentPost;
+          </form> */
+}

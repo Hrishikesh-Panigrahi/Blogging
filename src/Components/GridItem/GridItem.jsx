@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+import { BiTime } from "react-icons/bi";
+
 const GridItem = ({
   title,
   imageSrc,
@@ -49,7 +51,7 @@ const GridItem = ({
             </div>
 
             <div className="wrapper">
-              <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
+              <ion-icon name="time-outline" aria-hidden="true"><BiTime/></ion-icon>
 
               <span className="span">{readingTime}</span>
             </div>
