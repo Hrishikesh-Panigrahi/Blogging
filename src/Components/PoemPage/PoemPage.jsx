@@ -13,15 +13,15 @@ const PoemPage = () => {
 
   useEffect(() => {
     // Fetch the JSON file containing poem data
-    fetch("/db.json")
+    fetch("https://json-file-theta.vercel.app/poems")
       .then((response) => response.json())
       .then((data) => {
         // Find the poem with matching id
         console.log("Fetched data:", data);
-        const poem = data.poems.find((p) => p.title === title);
+        const poem = data.find((p) => p.title === title);
         console.log("Selected poem:", poem);
         if (poem) {
-          setPoemContent(poem.content);
+          setPoemContent(poem);
         }
       })
       .catch((error) => {
@@ -47,7 +47,7 @@ const PoemPage = () => {
       </h1>
       <div className="poem">
         <div className="poemText hero-text" style={{ whiteSpace: "pre-line" }}>
-          {poemContent}
+          {poemContent.content}
         </div>
       </div>
 

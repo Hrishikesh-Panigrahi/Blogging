@@ -17,11 +17,11 @@ const HotTopics = () => {
 
   useEffect(() => {
     // Fetch slider data from your API endpoint
-    fetch("/db.json")
+    fetch("https://json-file-theta.vercel.app/poems")
       .then((response) => response.json())
       .then((data) => {
         // Update the state with the fetched slider data
-        setSliderData(data.poems);
+        setSliderData(data);
       })
       .catch((error) => {
         console.error("Error fetching slider data:", error);
