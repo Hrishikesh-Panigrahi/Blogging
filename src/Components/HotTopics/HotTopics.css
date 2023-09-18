@@ -93,8 +93,6 @@
     font-size: var(--fontSize-7);
 }
 
-
-
 @media (min-width: 575px) {
 
     .topics .section-title {
