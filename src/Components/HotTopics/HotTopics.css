@@ -3,7 +3,6 @@
     border-radius: var(--radius-8);
     z-index: 0;
     margin-bottom: 20px;
-    /* gap: 5px !important; */
 }
 
 .topic-card .card-content {
